@@ -29,6 +29,10 @@ def make_robot_from_config(config: RobotConfig) -> Robot:
         from .so100_follower import SO100Follower
 
         return SO100Follower(config)
+    elif config.type == "sam_follower":
+        from .sam_follower import SAMFollower
+
+        return SAMFollower(config)
     elif config.type == "so100_follower_end_effector":
         from .so100_follower import SO100FollowerEndEffector
 
@@ -61,7 +65,12 @@ def make_robot_from_config(config: RobotConfig) -> Robot:
         from .bi_so100_follower import BiSO100Follower
 
         return BiSO100Follower(config)
+    elif config.type == "bi_sam_follower":
+        from .bi_sam_follower import BiSAMFollower
+
+        return BiSAMFollower(config)
     elif config.type == "mock_robot":
+
         from tests.mocks.mock_robot import MockRobot
 
         return MockRobot(config)
